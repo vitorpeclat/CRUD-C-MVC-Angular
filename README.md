@@ -38,7 +38,8 @@ dotnet restore
 
 ```
 
-###🗄️ Configurar Banco de DadosAbra o arquivo `appsettings.json` e verifique se a **Connection String** aponta corretamente para o seu MySQL local (lembre-se de ajustar a senha):
+###🗄️ Configurar Banco de Dados
+Abra o arquivo `appsettings.json` e verifique se a **Connection String** aponta corretamente para o seu MySQL local (lembre-se de ajustar a senha):
 
 ```json
 "ConnectionStrings": {
@@ -47,7 +48,8 @@ dotnet restore
 
 ```
 
-###▶️ Rodar a AplicaçãoExecute o comando abaixo para iniciar o servidor.
+###▶️ Rodar a Aplicação
+Execute o comando abaixo para iniciar o servidor.
 *Nota: O código tentará criar o banco automaticamente se configurado (`EnsureCreated`) ou você pode rodar as migrations manualmente.*
 
 ```bash
@@ -59,7 +61,8 @@ dotnet run
 
 ---
 
-##💻 2. Configuração do Front-End (Angular)###📦 InstalaçãoAbra um **novo terminal** na pasta `CadastroUsuariosFront`:
+##💻 2. Configuração do Front-End (Angular)
+###📦 InstalaçãoAbra um **novo terminal** na pasta `CadastroUsuariosFront`:
 
 ```bash
 # Instalar dependências (Angular, Bootstrap, etc)
@@ -67,7 +70,8 @@ npm install
 
 ```
 
-###🔗 Configurar a URL da APIAbra o arquivo `src/app/api.service.ts` e ajuste a porta conforme o que está rodando no Back-End:
+###🔗 Configurar a URL da API
+Abra o arquivo `src/app/api.service.ts` e ajuste a porta conforme o que está rodando no Back-End:
 
 ```typescript
 // Exemplo: Se o C# rodou na porta 5014
@@ -75,7 +79,8 @@ private apiUrl = 'http://localhost:5014/api/usuarios';
 
 ```
 
-###▶️ Rodar o Front-EndInicie o servidor de desenvolvimento:
+###▶️ Rodar o Front-End
+Inicie o servidor de desenvolvimento:
 
 ```bash
 npx ng serve
@@ -86,7 +91,8 @@ Acesse a aplicação no navegador em: **http://localhost:4200**
 
 ---
 
-##📦 Detalhes das Dependências###Back-End (.NET)* `Microsoft.EntityFrameworkCore` (ORM)
+##📦 Detalhes das Dependências
+###Back-End (.NET)* `Microsoft.EntityFrameworkCore` (ORM)
 * `Pomelo.EntityFrameworkCore.MySql` (Conector MySQL)
 * `Microsoft.AspNetCore.OpenApi` / Swagger (Documentação)
 
@@ -96,7 +102,8 @@ Acesse a aplicação no navegador em: **http://localhost:4200**
 
 ---
 
-##❓ Solução de Problemas Comuns###1. Erro `{"isTrusted":true}` ao cadastrar* **Causa:** O Angular não consegue conectar na API.
+##❓ Solução de Problemas Comuns
+###1. Erro `{"isTrusted":true}` ao cadastrar* **Causa:** O Angular não consegue conectar na API.
 * **Solução:** Confirme se a porta no arquivo `api.service.ts` é exatamente a mesma exibida no terminal do .NET. Verifique se a API está rodando.
 
 ###2. Erro de CORS (Bloqueio de acesso)* **Solução:** No arquivo `Program.cs` (Back-End), garanta que a linha `app.UseCors(...)` está posicionada **antes** de `app.UseAuthorization()`.
