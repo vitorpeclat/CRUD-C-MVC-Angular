@@ -1,8 +1,3 @@
-Aqui está o texto convertido para o formato Markdown, pronto para ser usado em um arquivo `README.md`.
-
-Eu organizei a estrutura, adicionei a sintaxe correta para os blocos de código (bash, json, typescript) e garanti que os espaçamentos estejam corretos para renderização em plataformas como GitHub ou GitLab.
-
-```markdown
 # 📋 Sistema de Cadastro de Usuários (CRUD Fullstack)
 
 Este projeto é uma aplicação Fullstack simples para gerenciamento de usuários, demonstrando operações de CRUD (Criar, Ler, Atualizar, Excluir).
@@ -107,10 +102,3 @@ Acesse a aplicação no navegador em: **http://localhost:4200**
 **3. Erro de SSL/HTTPS**
 
 * **Solução:** No ambiente de desenvolvimento, comente a linha `app.UseHttpsRedirection();` no arquivo `Program.cs` para permitir conexões via HTTP simples.
-
-```
-
-### O que você gostaria de fazer a seguir?
-Gostaria que eu gerasse um arquivo `.gitignore` adequado para este projeto (cobrindo tanto .NET quanto Angular) para acompanhar este README?
-
-```
