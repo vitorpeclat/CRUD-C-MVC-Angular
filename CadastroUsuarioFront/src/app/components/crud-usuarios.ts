@@ -11,11 +11,16 @@ import { ApiService, Usuario } from '../../api.service';
   styles: []
 })
 export class CrudUsuariosComponent implements OnInit {
-  usuarios: Usuario[] = [];
+  usuarios: Usuario[] = [];           // Lista completa (Banco de dados)
+  usuariosFiltrados: Usuario[] = [];  // Lista exibida na tela (Filtrada)
   
-  // Objeto para o formulário
   usuarioAtual: Usuario = { nome: '', login: '', senha: '', email: '' };
-  modoEdicao = false;
+  
+  // Variável para o campo de busca
+  termoBusca: string = '';
+
+  exibirFormularioNovo = false;
+  idEdicao: number | null = null; 
 
   constructor(private api: ApiService) {}
 
@@ -26,63 +31,94 @@ export class CrudUsuariosComponent implements OnInit {
   carregarLista() {
     this.api.listar().subscribe(dados => {
       this.usuarios = dados;
+      this.filtrar(); // Atualiza a lista visual assim que os dados chegam
     });
   }
 
+  // --- FUNÇÃO DE BUSCA ---
+  filtrar() {
+    if (!this.termoBusca) {
+      // Se não tem busca, mostra tudo
+      this.usuariosFiltrados = [...this.usuarios];
+    } else {
+      const termo = this.termoBusca.toLowerCase();
+      
+      this.usuariosFiltrados = this.usuarios.filter(u => 
+        u.nome.toLowerCase().includes(termo) ||
+        u.email.toLowerCase().includes(termo) ||
+        u.id?.toString().includes(termo)
+      );
+    }
+  }
+
+  // --- LÓGICA DE CADASTRO/EDIÇÃO (Mantida igual) ---
+  
+  alternarNovoCadastro() {
+    if (this.exibirFormularioNovo) {
+      this.cancelar();
+    } else {
+      this.limpar();
+      this.exibirFormularioNovo = true;
+      this.idEdicao = null;
+    }
+  }
+
+  editar(usuario: Usuario) {
+    this.exibirFormularioNovo = false;
+    this.idEdicao = usuario.id!;
+    this.usuarioAtual = { ...usuario };
+  }
+
+  cancelar() {
+    this.exibirFormularioNovo = false;
+    this.idEdicao = null;
+    this.limpar();
+  }
+
   salvar() {
-    // Validação simples
     if (!this.usuarioAtual.nome || !this.usuarioAtual.email) {
       alert('Preencha os campos obrigatórios!');
       return;
     }
 
-    if (this.modoEdicao && this.usuarioAtual.id) {
-      // ATUALIZAR
+    if (this.usuarioAtual.id) {
       this.api.atualizar(this.usuarioAtual).subscribe({
         next: () => {
           alert('Atualizado com sucesso!');
-          this.limpar();
-          this.carregarLista();
+          this.finalizarAcao();
         },
-        error: (erro: any) => { // <--- CORREÇÃO 1: Tipar erro como any
-          alert('Erro ao atualizar: ' + JSON.stringify(erro.error));
-        }
+        error: (erro: any) => alert('Erro: ' + JSON.stringify(erro.error))
       });
     } else {
-      // CRIAR
       const novo = { ...this.usuarioAtual };
-      
-      // <--- CORREÇÃO 2: Cast para 'any' para permitir o delete sem erro no TypeScript
-      delete (novo as any).id; 
+      delete (novo as any).id;
 
       this.api.salvar(novo).subscribe({
         next: () => {
           alert('Cadastrado com sucesso!');
-          this.limpar();
-          this.carregarLista();
+          this.finalizarAcao();
         },
-        error: (erro: any) => { // <--- CORREÇÃO 1: Tipar erro como any
-          alert('Erro ao cadastrar: ' + JSON.stringify(erro.error));
-        }
+        error: (erro: any) => alert('Erro: ' + JSON.stringify(erro.error))
       });
     }
   }
 
-  editar(usuario: Usuario) {
-    this.usuarioAtual = { ...usuario };
-    this.modoEdicao = true;
-  }
-
   excluir(id: number) {
-    if (confirm('Deseja realmente excluir?')) {
+    if (confirm('Tem certeza que deseja excluir?')) {
       this.api.excluir(id).subscribe(() => {
         this.carregarLista();
       });
     }
   }
 
+  finalizarAcao() {
+    this.carregarLista();
+    this.exibirFormularioNovo = false;
+    this.idEdicao = null;
+    this.limpar();
+  }
+
   limpar() {
     this.usuarioAtual = { nome: '', login: '', senha: '', email: '' };
-    this.modoEdicao = false;
   }
 }
