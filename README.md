@@ -62,7 +62,10 @@ dotnet run
 ---
 
 ##💻 2. Configuração do Front-End (Angular)
-###📦 InstalaçãoAbra um **novo terminal** na pasta `CadastroUsuariosFront`:
+
+###📦 Instalação
+
+Abra um **novo terminal** na pasta `CadastroUsuariosFront`:
 
 ```bash
 # Instalar dependências (Angular, Bootstrap, etc)
