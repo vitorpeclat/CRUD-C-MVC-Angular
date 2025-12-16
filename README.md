@@ -1,4 +1,11 @@
-#📋 Sistema de Cadastro de Usuários (CRUD Fullstack)Este projeto é uma aplicação Fullstack simples para gerenciamento de usuários, demonstrando operações de CRUD (Criar, Ler, Atualizar, Excluir).
+Aqui está o texto convertido para o formato Markdown, pronto para ser usado em um arquivo `README.md`.
+
+Eu organizei a estrutura, adicionei a sintaxe correta para os blocos de código (bash, json, typescript) e garanti que os espaçamentos estejam corretos para renderização em plataformas como GitHub ou GitLab.
+
+```markdown
+# 📋 Sistema de Cadastro de Usuários (CRUD Fullstack)
+
+Este projeto é uma aplicação Fullstack simples para gerenciamento de usuários, demonstrando operações de CRUD (Criar, Ler, Atualizar, Excluir).
 
 * **Back-End:** C# .NET 8 (Web API)
 * **Front-End:** Angular 17+ (Standalone Components)
@@ -6,7 +13,9 @@
 
 ---
 
-##🛠️ Pré-requisitosAntes de começar, certifique-se de ter instalado em sua máquina:
+## 🛠️ Pré-requisitos
+
+Antes de começar, certifique-se de ter instalado em sua máquina:
 
 * **[.NET SDK 8.0](https://dotnet.microsoft.com/download/dotnet/8.0)**
 * **[Node.js](https://nodejs.org/)** (versão LTS recomendada)
@@ -14,7 +23,11 @@
 
 ---
 
-##🚀 1. Configuração do Back-End (API)###Instalação de Ferramentas e DependênciasAbra o terminal na pasta `CadastroUsuariosApi` e execute os comandos abaixo para restaurar os pacotes e instalar a ferramenta do Entity Framework:
+## 🚀 1. Configuração do Back-End (API)
+
+### Instalação de Ferramentas e Dependências
+
+Abra o terminal na pasta `CadastroUsuariosApi` e execute os comandos abaixo para restaurar os pacotes e instalar a ferramenta do Entity Framework:
 
 ```bash
 # 1. Instalar ferramenta global do EF Core (necessário para migrations)
@@ -94,3 +107,10 @@ Acesse a aplicação no navegador em: **http://localhost:4200**
 **3. Erro de SSL/HTTPS**
 
 * **Solução:** No ambiente de desenvolvimento, comente a linha `app.UseHttpsRedirection();` no arquivo `Program.cs` para permitir conexões via HTTP simples.
+
+```
+
+### O que você gostaria de fazer a seguir?
+Gostaria que eu gerasse um arquivo `.gitignore` adequado para este projeto (cobrindo tanto .NET quanto Angular) para acompanhar este README?
+
+```
