@@ -38,7 +38,7 @@ dotnet restore
 
 ```
 
-###🗄️ Configurar Banco de Dados
+🗄️ Configurar Banco de Dados
 Abra o arquivo `appsettings.json` e verifique se a **Connection String** aponta corretamente para o seu MySQL local (lembre-se de ajustar a senha):
 
 ```json
@@ -48,7 +48,7 @@ Abra o arquivo `appsettings.json` e verifique se a **Connection String** aponta 
 
 ```
 
-###▶️ Rodar a Aplicação
+▶️ Rodar a Aplicação
 Execute o comando abaixo para iniciar o servidor.
 *Nota: O código tentará criar o banco automaticamente se configurado (`EnsureCreated`) ou você pode rodar as migrations manualmente.*
 
