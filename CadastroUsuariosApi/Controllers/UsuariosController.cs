@@ -42,10 +42,14 @@ namespace CadastroUsuariosApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
+            usuario.Nome = usuario.Nome.ToUpper();
+            usuario.Login = usuario.Login.ToLower();
+            usuario.Email = usuario.Email.ToLower();
+
+            //Retorna o código 201 (Criado)
             _context.Usuarios.Add(usuario);
             await _context.SaveChangesAsync();
 
-            // Retorna código 201 (Created)
             return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
         }
 
@@ -58,6 +62,9 @@ namespace CadastroUsuariosApi.Controllers
                 return BadRequest();
             }
 
+            usuario.Nome = usuario.Nome.ToUpper();
+            usuario.Login = usuario.Login.ToLower();
+            usuario.Email = usuario.Email.ToLower();
             // Marca o objeto como modificado
             _context.Entry(usuario).State = EntityState.Modified;
 

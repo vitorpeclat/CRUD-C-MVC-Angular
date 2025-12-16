@@ -3,11 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CadastroUsuariosApi.Models
 {
-    // Representa a tabela 'Usuarios' no banco de dados
     public class Usuario
     {
-        [Key] // Define que é a Chave Primária
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // Auto-incremento
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "O nome é obrigatório")]
@@ -18,13 +17,13 @@ namespace CadastroUsuariosApi.Models
         [StringLength(50)]
         public string Login { get; set; } = string.Empty;
 
-        // Em projetos reais, senhas devem ser hash (criptografadas), 
-        // mas aqui manteremos simples conforme solicitado.
         [Required(ErrorMessage = "A senha é obrigatória")]
+        [RegularExpression(@"^(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{6,}$", 
+            ErrorMessage = "A senha deve conter uma letra maiúscula, um caractere especial e no mínimo 6 dígitos.")]
         public string Senha { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "O e-mail é obrigatório")]
-        [EmailAddress(ErrorMessage = "Formato de e-mail inválido")]
+        [RegularExpression(@"^.+@.+\..+$", ErrorMessage = "O e-mail deve seguir o formato email@dominio.com")]
         public string Email { get; set; } = string.Empty;
     }
 }
