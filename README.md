@@ -1,4 +1,3 @@
-```markdown
 # 📋 Sistema de Cadastro de Usuários (CRUD Fullstack)
 
 > Um projeto Fullstack prático para gerenciamento de usuários, demonstrando operações essenciais de CRUD (Criar, Ler, Atualizar, Excluir).
