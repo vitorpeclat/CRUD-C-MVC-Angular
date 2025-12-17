@@ -1,0 +1,64 @@
+/* --- ESTILOS DA TABELA --- */
+
+/* Fixa a largura da tabela para que as colunas obedeçam às porcentagens */
+.tabela-fixa {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* Larguras personalizadas para cada coluna */
+.col-id { width: 8%; }
+.col-nome { width: 32%; }
+.col-login { width: 20%; }
+.col-email { width: 25%; }
+.col-acoes { width: 15%; text-align: center; }
+
+/* Estilo para a dica pequena abaixo da senha */
+.dica-senha {
+  font-size: 10px;
+  color: #6c757d;
+}
+
+/* --- ESTILOS DO POPUP DE ERRO (TOOLTIP) --- */
+
+/* Cria um contexto de posicionamento para que o popup absoluto fique preso aqui */
+.input-container {
+  position: relative;
+}
+
+/* O balão vermelho de erro */
+.popup-erro {
+  position: absolute;
+  bottom: 100%; /* Posiciona 100% acima do topo do input */
+  left: 0;
+  background-color: #dc3545; /* Vermelho padrão do Bootstrap */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap; /* Impede que o texto quebre linha */
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2); /* Sombra suave */
+  z-index: 10; /* Garante que fique por cima de outros elementos */
+  margin-bottom: 5px; /* Espaço entre o balão e o input */
+  
+  /* Chama a animação definida no @keyframes abaixo */
+  animation: popIn 0.2s ease-out;
+}
+
+/* Cria o triângulo ("setinha") apontando para baixo no balão */
+.popup-erro::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* Logo abaixo do balão */
+  left: 20px;
+  border-width: 5px;
+  border-style: solid;
+  /* Cor: Vermelho em cima, transparente nos outros lados */
+  border-color: #dc3545 transparent transparent transparent;
+}
+
+/* Animação CSS pura: faz o balão surgir subindo e ganhando opacidade */
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

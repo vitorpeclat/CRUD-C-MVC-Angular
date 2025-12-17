@@ -6,12 +6,6 @@ import { CrudUsuariosComponent } from './components/crud-usuarios'; // <--- Impo
   standalone: true,
   imports: [CrudUsuariosComponent], // <--- Adiciona aqui
   template: `
-    <nav class="navbar navbar-dark bg-dark mb-3">
-      <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">Sistema Angular + C#</span>
-      </div>
-    </nav>
-    
     <app-crud-usuarios></app-crud-usuarios> 
   `,
   styles: []

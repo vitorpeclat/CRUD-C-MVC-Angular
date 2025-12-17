@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vpeclat\\Documents\\GitHub\\CRUD-C-MVC-Angular\\CadastroUsuariosApi\\CadastroUsuariosApi.csproj": {}
+    "C:\\Users\\Peclat\\Documents\\GitHub\\CRUD-C-MVC-Angular\\CadastroUsuariosApi\\CadastroUsuariosApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vpeclat\\Documents\\GitHub\\CRUD-C-MVC-Angular\\CadastroUsuariosApi\\CadastroUsuariosApi.csproj": {
+    "C:\\Users\\Peclat\\Documents\\GitHub\\CRUD-C-MVC-Angular\\CadastroUsuariosApi\\CadastroUsuariosApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vpeclat\\Documents\\GitHub\\CRUD-C-MVC-Angular\\CadastroUsuariosApi\\CadastroUsuariosApi.csproj",
+        "projectUniqueName": "C:\\Users\\Peclat\\Documents\\GitHub\\CRUD-C-MVC-Angular\\CadastroUsuariosApi\\CadastroUsuariosApi.csproj",
         "projectName": "CadastroUsuariosApi",
-        "projectPath": "C:\\Users\\vpeclat\\Documents\\GitHub\\CRUD-C-MVC-Angular\\CadastroUsuariosApi\\CadastroUsuariosApi.csproj",
-        "packagesPath": "C:\\Users\\vpeclat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vpeclat\\Documents\\GitHub\\CRUD-C-MVC-Angular\\CadastroUsuariosApi\\obj\\",
+        "projectPath": "C:\\Users\\Peclat\\Documents\\GitHub\\CRUD-C-MVC-Angular\\CadastroUsuariosApi\\CadastroUsuariosApi.csproj",
+        "packagesPath": "C:\\Users\\Peclat\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Peclat\\Documents\\GitHub\\CRUD-C-MVC-Angular\\CadastroUsuariosApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vpeclat\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Peclat\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
