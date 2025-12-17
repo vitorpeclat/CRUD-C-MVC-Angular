@@ -133,17 +133,10 @@ Acesse a aplicação no navegador em: **http://localhost:4200**
 
 ---
 
-## ❓ Solução de Problemas Comuns
+## ❓ Problemas Comuns
 
-### 1. Erro `{"isTrusted":true}` ao cadastrar
+### Erro `{"isTrusted":true}` ao cadastrar
 
 * **Causa:** O Angular não consegue conectar na API.
 * **Solução:** Confirme se a porta no arquivo `api.service.ts` é exatamente a mesma exibida no terminal do .NET. Verifique se a API está rodando.
 
-### 2. Erro de CORS (Bloqueio de acesso)
-
-* **Solução:** No arquivo `Program.cs` (Back-End), garanta que a linha `app.UseCors(...)` está posicionada **antes** de `app.UseAuthorization()`.
-
-### 3. Erro de SSL/HTTPS
-
-* **Solução:** Em ambiente de desenvolvimento local, comente a linha `app.UseHttpsRedirection();` no arquivo `Program.cs` para evitar erros de certificado e permitir conexões via HTTP simples.
